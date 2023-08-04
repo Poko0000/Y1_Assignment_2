@@ -16,7 +16,8 @@ public class Obstaacles : MonoBehaviour
     void Update()
     {
         transform.localScale += new Vector3(0.002f, 0.002f, 0.002f);
-        transform.Translate((transform.position - centre.transform.position).normalized * moveSpeed * Time.deltaTime);  
+        transform.Translate((transform.position - centre.transform.position).normalized * moveSpeed * Time.deltaTime);
+        Destroy(gameObject, 3f);
     }
 
 }

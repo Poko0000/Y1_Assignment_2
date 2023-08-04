@@ -22,13 +22,37 @@ public class GameManager : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(3);
-            
-            Instantiate(Obstacles, new Vector3(RandomNum(), 0, RandomNum()), Quaternion.identity);
+            yield return new WaitForSeconds(1);
+            SwawnTimes();
         }
     }
 
+    void SwawnTimes()
+    {
+        int time = Random.Range(1, 4);
+        switch(time)
+        {
+            case 1: Instantiator(); 
+                break;
+            case 2:
+                Instantiator();
+                Instantiator();
+                break;
+            case 3:
+                Instantiator();
+                Instantiator();
+                Instantiator();
+                break;
 
+            default:
+            break;
+        }
+    }
+
+    void Instantiator()
+    {
+        Instantiate(Obstacles, new Vector3(RandomNum(), 0, RandomNum()), Quaternion.identity);
+    }
 
     float RandomNum()
     {

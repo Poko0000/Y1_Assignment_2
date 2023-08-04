@@ -24,6 +24,6 @@ public class PlayerController : MonoBehaviour
     void PlayerMovement()
     {
         float rotationX = Input.GetAxis("Mouse X") * -rotationSpeed;
-        transform.RotateAround(centre.position, Vector3.up, rotationX);
+        playerRb.transform.RotateAround(centre.position, Vector3.up, rotationX);
     }
 }
