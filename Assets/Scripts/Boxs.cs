@@ -19,7 +19,7 @@ public class Boxs : MonoBehaviour
     {
         if (other.gameObject.name == "Sensor")
         {
-            Debug.Log("Yes");
+            //Debug.Log("Yes");
             Destroy(this.gameObject);
         }
     }

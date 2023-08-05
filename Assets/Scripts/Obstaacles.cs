@@ -15,7 +15,7 @@ public class Obstaacles : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.localScale += new Vector3(0.002f, 0.002f, 0.002f);
+        transform.localScale += new Vector3(0.01f, 0.01f, 0.01f);
         transform.Translate((transform.position - centre.transform.position).normalized * moveSpeed * Time.deltaTime);
         Destroy(gameObject, 3f);
     }
