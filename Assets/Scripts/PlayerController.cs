@@ -8,13 +8,21 @@ public class PlayerController : MonoBehaviour
     public float rotationSpeed;
 
     private Rigidbody playerRb;
+    private Obstaacles obs;
 
     // Start is called before the first frame update
     void Start()
     {
-        playerRb = GetComponent<Rigidbody>();    
+        playerRb = GetComponent<Rigidbody>();
+        obs = GameObject.FindGameObjectWithTag("Obstacle").GetComponent<Obstaacles>();
     }
-
+    void Update()
+    {
+        if(Input.GetKey(KeyCode.Space))
+        {
+            obs.ObjectsMovement(20.0f);
+        }
+    }
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -23,7 +31,7 @@ public class PlayerController : MonoBehaviour
 
     void PlayerMovement()
     {
-        float rotationX = Input.GetAxis("Mouse X") * -rotationSpeed;
+        float rotationX = Input.GetAxis("Mouse X") * -rotationSpeed * Time.deltaTime;
         playerRb.transform.RotateAround(centre.position, Vector3.up, rotationX);
     }
 }
