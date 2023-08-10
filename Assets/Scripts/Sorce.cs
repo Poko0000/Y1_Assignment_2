@@ -6,11 +6,14 @@ using TMPro;
 
 public class UI : MonoBehaviour
 {
-    float time;
+    private TextMeshProUGUI tmpUI;
+    private float time;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        tmpUI = GetComponent<TextMeshProUGUI>();
+        tmpUI.text = "Depth: ";
     }
 
     // Update is called once per frame
@@ -21,6 +24,7 @@ public class UI : MonoBehaviour
 
     private void Timer()
     {
-        time += Time.deltaTime;        
+        time += 10 * Time.deltaTime;
+        tmpUI.text = "Depth: " + time.ToString("0");
     }
 }
