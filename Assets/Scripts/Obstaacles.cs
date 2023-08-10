@@ -20,7 +20,7 @@ public class Obstaacles : MonoBehaviour
 
     public void ObjectsMovement(float speed)
     {
-        transform.localScale += new Vector3(0.02f, 0.02f, 0.02f);
+        transform.localScale += new Vector3(0.03f, 0.03f, 0.03f);
         transform.Translate((transform.position - centre.transform.position).normalized * speed * Time.deltaTime);
         Destroy(gameObject, 3f);
     }

@@ -29,16 +29,21 @@ public class GameManager : MonoBehaviour
 
     void SwawnTimes()
     {
-        int time = Random.Range(1, 4);
+        int time = Random.Range(1, 3);
         switch(time)
         {
-            case 1: Instantiator(); 
+            case 0: Instantiator();
+                Instantiator();
+                break;
+            case 1:
+                Instantiator();
+                Instantiator();
+                Instantiator();
+                Instantiator();
                 break;
             case 2:
                 Instantiator();
                 Instantiator();
-                break;
-            case 3:
                 Instantiator();
                 Instantiator();
                 Instantiator();
@@ -56,7 +61,7 @@ public class GameManager : MonoBehaviour
 
     float RandomNum()
     {
-        float index = Random.Range(1, 10) / 10.0f;
+        float index = Random.Range(-10, 10) / 10.0f;
         return index;
     }
 }

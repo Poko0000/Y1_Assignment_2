@@ -14,13 +14,13 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
-        obs = GameObject.FindGameObjectWithTag("Obstacle").GetComponent<Obstaacles>();
+        //obs = GameObject.FindGameObjectWithTag("Obstacle").GetComponent<Obstaacles>();
     }
     void Update()
     {
         if(Input.GetKey(KeyCode.Space))
         {
-            obs.ObjectsMovement(20.0f);
+            //obs.ObjectsMovement(20.0f);
         }
     }
     // Update is called once per frame
@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
 
     void PlayerMovement()
     {
-        float rotationX = Input.GetAxis("Mouse X") * -rotationSpeed * Time.deltaTime;
+        float rotationX = Input.GetAxis("Mouse X") * -rotationSpeed ;
         playerRb.transform.RotateAround(centre.position, Vector3.up, rotationX);
     }
 }
