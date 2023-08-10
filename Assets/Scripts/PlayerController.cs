@@ -8,30 +8,35 @@ public class PlayerController : MonoBehaviour
     public float rotationSpeed;
 
     private Rigidbody playerRb;
-    private Obstaacles obs;
+    private bool speedUp;
 
     // Start is called before the first frame update
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
-        //obs = GameObject.FindGameObjectWithTag("Obstacle").GetComponent<Obstaacles>();
+        
     }
+
+    // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.Space))
-        {
-            //obs.ObjectsMovement(20.0f);
-        }
-    }
-    // Update is called once per frame
-    void FixedUpdate()
-    {
         PlayerMovement();
+
+        if (Input.GetKey(KeyCode.Space))
+        {
+            Time.timeScale = 2;
+            speedUp = true;
+        }
+        else
+        {
+            Time.timeScale = 1;
+            speedUp = false;
+        }
     }
 
     void PlayerMovement()
     {
-        float rotationX = Input.GetAxis("Mouse X") * -rotationSpeed ;
-        playerRb.transform.RotateAround(centre.position, Vector3.up, rotationX);
+        float rotationX = Input.GetAxis("Mouse X") * -rotationSpeed;
+        playerRb.transform.RotateAround(centre.position, Vector3.up, rotationX);       
     }
 }
