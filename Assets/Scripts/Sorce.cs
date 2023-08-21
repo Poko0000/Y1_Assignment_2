@@ -7,11 +7,13 @@ using TMPro;
 public class UI : MonoBehaviour
 {
     private TextMeshProUGUI tmpUI;
+    private GameManager gm;
     private float time;
 
     // Start is called before the first frame update
     void Start()
     {
+        gm = GameObject.Find("GameManeger").GetComponent<GameManager>();
         tmpUI = GetComponent<TextMeshProUGUI>();
         tmpUI.text = "Depth: ";
     }
@@ -19,7 +21,11 @@ public class UI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Timer();
+        if (gm.OnGame)
+        {
+            Timer();
+        }
+       
     }
 
     private void Timer()

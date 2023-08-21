@@ -1,18 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private TextMeshProUGUI gameoverText;
     public GameObject obstacle;
     public GameObject bomb;
     
     private float time;
     private int time1;
     private float speed = 1f;
+
+    public bool OnGame = false;
+
+    private void Awake()
+    {
+        
+    }
     // Start is called before the first frame update
     void Start()
     {
+        OnGame = true;
         time = 0;
         time1 = 0;
         StartCoroutine(SpawnObstaacles(speed));
@@ -26,7 +37,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator SpawnObstaacles(float time)
     {
-        while (true)
+        while (OnGame)
         {
             yield return new WaitForSeconds(time);
             SwawnTimes();
@@ -35,7 +46,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator BombSwan()
     {
-        while (true)
+        while (OnGame)
         {
             yield return new WaitForSeconds(5);
             Instantiate(bomb, new Vector3(RandomNum(), 3, RandomNum()), Quaternion.identity);
@@ -81,5 +92,11 @@ public class GameManager : MonoBehaviour
         {
             time1 = 20;
         }
+    }
+
+    public void GameOver()
+    {
+        OnGame = false;
+        gameoverText.gameObject.SetActive(true);
     }
 }

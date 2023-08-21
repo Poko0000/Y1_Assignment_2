@@ -8,10 +8,13 @@ public class Obstaacles : MonoBehaviour
     private float moveSpeed = 8;
     private bool speedUp;
 
+    private GameManager gm;
+
     // Start is called before the first frame update
     void Start()
     {
-        centre = GameObject.Find("ObstacleCenter");       
+        centre = GameObject.Find("ObstacleCenter");
+        gm = GameObject.Find("GameManeger").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -43,8 +46,8 @@ public class Obstaacles : MonoBehaviour
 
         if (other.gameObject.name == "Player" && !speedUp)
         {
-            Debug.Log("GameOver");
-            
+            gm.GameOver();
+            Debug.Log("GameOver");          
         }
     }
 
